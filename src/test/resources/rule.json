@@ -1,0 +1,30 @@
+{
+  "value": {
+    "logicOperator": "AND",
+    "rule": null
+  },
+  "left": {
+    "value": {
+      "logicOperator": "NA",
+      "rule": {
+        "operand": "name",
+        "comparisonOperator": "EQUAL",
+        "condition": ["Jackson"]
+      }
+    },
+    "left": null,
+    "right": null
+  },
+  "right": {
+    "value": {
+      "logicOperator": "NA",
+      "rule": {
+        "operand": "age",
+        "comparisonOperator": "GREATER_THAN",
+        "condition": [18]
+      }
+    },
+    "left": null,
+    "right": null
+  }
+}
