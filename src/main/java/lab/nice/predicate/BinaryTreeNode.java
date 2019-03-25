@@ -154,13 +154,14 @@ public class BinaryTreeNode<E> {
         BinaryTreeNode<E> current = root, lastVisited = root;
         stack.push(current);
         while (!stack.isEmpty()) {
-            current = stack.pop();
+            current = stack.peek();
             if ((current.left == null && current.right == null) //leaf node
                     || (current.right == null && lastVisited == current.left) // right child node is null and left child node visited
                     || (lastVisited == current.right) // left and right child node visited
             ) {
                 res.add(current.value);
                 lastVisited = current;
+                stack.pop();
             } else {
                 if (current.right != null) {
                     stack.push(current.right);
