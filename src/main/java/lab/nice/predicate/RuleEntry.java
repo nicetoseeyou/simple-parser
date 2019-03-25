@@ -6,18 +6,18 @@ public class RuleEntry {
     public LogicOperator logicOperator;
     public Rule rule;
 
-    public RuleEntry(){
+    public RuleEntry() {
     }
 
-    public RuleEntry(LogicOperator logicOperator){
+    public RuleEntry(LogicOperator logicOperator) {
         this(logicOperator, null);
     }
 
-    public RuleEntry(Rule rule){
+    public RuleEntry(Rule rule) {
         this(null, rule);
     }
 
-    public RuleEntry(LogicOperator logicOperator, Rule rule){
+    public RuleEntry(LogicOperator logicOperator, Rule rule) {
         this.logicOperator = logicOperator;
         this.rule = rule;
     }

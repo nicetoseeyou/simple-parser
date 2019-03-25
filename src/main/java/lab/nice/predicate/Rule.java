@@ -3,15 +3,15 @@ package lab.nice.predicate;
 import java.util.List;
 import java.util.Objects;
 
-public class Rule {
+public class Rule<E> {
     public String operand;
     public ComparisonOperator comparisonOperator;
-    public List condition;
+    public List<E> condition;
 
-    public Rule(){
+    public Rule() {
     }
 
-    public Rule(String operand, ComparisonOperator comparisonOperator, List condition) {
+    public Rule(String operand, ComparisonOperator comparisonOperator, List<E> condition) {
         this.operand = operand;
         this.comparisonOperator = comparisonOperator;
         this.condition = condition;
@@ -33,11 +33,11 @@ public class Rule {
         this.comparisonOperator = comparisonOperator;
     }
 
-    public List getCondition() {
+    public List<E> getCondition() {
         return condition;
     }
 
-    public void setCondition(List condition) {
+    public void setCondition(List<E> condition) {
         this.condition = condition;
     }
 
