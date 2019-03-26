@@ -2,16 +2,18 @@ package lab.nice.predicate;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lab.nice.util.Numeric;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class BinaryTreeTest {
 
-    Rule ageRule = new Rule("age", ComparisonOperator.GREATER_THAN, Arrays.asList(18));
-    Rule nameRule = new Rule("name", ComparisonOperator.EQUAL, Arrays.asList("Jackson"));
+    Rule ageRule = new Rule("age", ComparisonOperator.GREATER_THAN, Collections.singletonList("18"));
+    Rule nameRule = new Rule("name", ComparisonOperator.EQUAL, Collections.singletonList("Jackson"));
     Rule countryRule = new Rule("country", ComparisonOperator.IN, Arrays.asList("USA", "UK"));
 
     RuleEntry ageEntry = new RuleEntry(LogicOperator.NA, ageRule);
@@ -70,7 +72,15 @@ public class BinaryTreeTest {
         ObjectMapper mapper = new ObjectMapper();
         BinaryTreeNode<RuleEntry> deserializedTree = mapper.readValue(this.getClass().getResource("/rule.json"), new TypeReference<BinaryTreeNode<RuleEntry>>() {
         });
+        deserializedTree.left.value.rule.condition.forEach(c -> System.out.println(c.getClass().getTypeName()));
+        deserializedTree.right.value.rule.condition.forEach(c -> System.out.println(c.getClass().getTypeName()));
+        Arrays.asList("a", 'b', 5L).forEach(c -> System.out.println(c.getClass().getTypeName()));
+        System.out.println(Numeric.isNumeric("+000000.01"));
+        System.out.println("************************");
+        Numeric.compare("0.0", "0.0");
+        System.out.println("************************");
         Assert.assertEquals(root, deserializedTree);
-        System.out.println(deserializedTree.inorderTraversal(deserializedTree));
     }
+
+
 }
